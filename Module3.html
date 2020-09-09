@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
+        <title>Модули</title>
+    </head>
+    <body>
+        <table border="5" width=300px height=300px cellpadding="5" cellspacing="5">
+        <caption><font size="5"><strong>Датчик вибрации</strong></font></caption>
+        <tr><td colspan="4"><img src="C:\Users\Igor\Desktop\Vibrank.jpg" alt=""><td colspan="4"><img src="C:\Users\Igor\Desktop\Scheme3.jpg" alt=""> </td> </td></tr>
+        <tr><td colspan="8" width=300px>Основной элемент датчика – металлическая пружина гибкой структуры, расположенная во внутренней части трубки из пластика. При наличии каких-либо воздействий на нее она начинает колебаться. Усиление сигнала происходит за счет его подачи сначала на операционный усилитель, а потом на выход аналогового типа. Важным элементом датчика вибрации является потенциометр, который регулирует чувствительность прибора, и позволяет устанавливать необходимый порог срабатывания.</td></tr>
+        <tr><td colspan="8">
+        <code>
+        1.     #define PIN_LED 13 <br>
+        2.     #define PIN_SENSOR 2 // Пин, ккотормоу присоединен датчик вибрации <br>
+        3.     void setup() { <br>
+        4.     pinMode(PIN_LED, OUTPUT); <br>
+        5.     } <br>
+        6.     void loop() { <br>
+        7.     int val = digitalRead(PIN_SENSOR); // Считываем значение с датчика <br>
+        8.     if(val==1){ <br>
+        9.     digitalWrite(PIN_LED, HIGH); // Датчик сработал – включаем светодиод <br>
+        10.    }else{ <br>
+        11.    digitalWrite(PIN_LED, LOW); <br>
+        12.    } <br>
+        13.    }
+        </code> </td></tr>
+        <tr><td colspan="8"><p>Ссылки отсутствуют</p>
+        </td></tr>
+        </table>
+    </body>
+    </html>
