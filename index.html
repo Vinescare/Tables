@@ -4,11 +4,36 @@
         <meta http-equiv="Content-Type" content="text/html"; charset="utf-8">
         <title>Модули</title>
     </head>
-    <body>
-        <h1 style="text-align:left">Модули:</h1>
-        <p> <a href="http://vinescare.github.io/Tables/Module1.html">Модуль 1</a> </p>
-        <p> <a href="http://vinescare.github.io/Tables/Module2.html">Модуль 2</a></p>
-        <p> <a href="http://vinescare.github.io/Tables/Module3.html">Модуль 3</a></p>
-        
+  <body>
+        <table border="5" width=300px height=300px cellpadding="5" cellspacing="5">
+        <caption><font size="5"><strong>Датчик для избегания препятствий KY-032</strong></font></caption>
+        <tr><td colspan="4"><img src="http://scrumpoker.eu/arduino/img/AvoidanceSensor1.jpg" alt=""><td colspan="4"><img src="http://scrumpoker.eu/arduino/img/AvoidanceSensor5.jpg" alt=""> </td> </td></tr>
+        <tr><td colspan="8" width=300px>“KY-032” – модуль представляет собой инфракрасный датчик обнаружения препятствий. Устройство имеет передатчик (IR LED), излучающий инфракрасный луч частотой 38 кГц, который принимается приемником (IR receiver) на плате. При приближении какого-либо предмета к сенсору (близость регулируется потенциометром) на выходе “OUT” появляется низкий уровень напряжения и включается светодиод на плате модуля. </td></tr>
+        <tr><td colspan="8">
+        <code>
+            1. digitalWrite( enablePin, HIGH); //Включить внутренний сигнал 38 кГц </br>
+            2. microDelay( 210); //Задержка 210µs(8 пульсов по 38kHz) </br>
+            3. if( digitalRead( outputPin)) //Если Output детектора равен HIGH </br>
+            4. { </br>
+            5. objectDetect = false; //Препятсвия не было найдено </br>
+            6. } </br>
+            7. else //Но если Output равен LOW, </br>
+            8. { </br>
+            9. microDelay( 395); //Опять ждать 15 пульсов </br>
+            10. if( digitalRead( outputPin)) //Если Output теперь равен HIGH </br>
+            11. { </br>
+            12. objectDetect = false; //Препятсвия не было найдено </br>
+            13. } </br>
+            14. else //Если Output до сих пор LOW </br>
+            15. { </br>
+            16. objectDetect = true; //Препятсвие было обнаружено </br>
+            17. } </br>
+            18. } </br>
+            19. digitalWrite( enablePin, LOW); //Выключить внутренний сигнал 38kHz 
+        </code> </td></tr>
+        <tr><td colspan="8"><p>Ссылки на источники</br> 1. <a href="https://umnyjdomik.ru/ky-032-modul-s-infrakrasnym-datchikom-obnaruzheniya-prepyatstvij-dlya-arduino.html">Источник информации</a> <br>
+        2. <a href="https://create.arduino.cc/projecthub/vandenbrande/obstacle-avoidance-with-the-ky-032-9af0a7">Сайт с библиотекой</a> </p>   
+        </td></tr>
+        </table>
     </body>
 </html>
